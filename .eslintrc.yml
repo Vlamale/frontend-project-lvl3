@@ -6,4 +6,8 @@ extends:
 parserOptions:
   ecmaVersion: latest
   sourceType: module
-rules: {}
+rules: {
+  no-param-reassign: [2, { 
+            props: false
+        }]
+}

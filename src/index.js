@@ -1,6 +1,5 @@
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap';
-import './style/style.css'
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import './style/style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import app from './app';
 
-console.log('Helle')
+app();
