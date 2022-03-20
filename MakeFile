@@ -1,3 +1,6 @@
+start:
+	npm run start
+
 install:
 	npm ci
 
@@ -15,6 +18,3 @@ test:
 
 test-coverage:
 	npm test -- --coverage --coverageProvider=v8
-
-start:
-	npm run start
