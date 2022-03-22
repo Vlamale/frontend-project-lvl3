@@ -10,7 +10,7 @@
 
 <body>
     <main>
-        <div class="container-fluid bg-dark text-white p-5">
+        <div class="container-fluid bg-dark text-white p-5 mb-4">
             <div class="row">
                 <div class="col mx-auto col-md-10">
                     <h1 class="display-3">RSS агрегатор</h1>
@@ -20,12 +20,14 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-floating text-secondary">
-                                    <input name="url" class="form-control link-form__input" id="floatingInput" placeholder="Ссылка RSS" required aria-label="url" autofocus autocomplete="off">
+                                    <input name="url" class="form-control link-form__input" id="floatingInput"
+                                        placeholder="Ссылка RSS" required aria-label="url" autofocus autocomplete="off">
                                     <label for="floatingInput">Ссылка RSS</label>
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <button type="submit" class="btn btn-primary px-sm-5 h-100 link-form__submit">Добавить</button>
+                                <button type="submit"
+                                    class="btn btn-primary px-sm-5 h-100 link-form__submit">Добавить</button>
                             </div>
                         </div>
                     </form>
@@ -34,7 +36,36 @@
                 </div>
             </div>
         </div>
+
+        <div class="container-fluid p-0">
+            <div class="row">
+
+                <div class="col col-md-8 post-container">
+                    <!-- <h2 class="text-center mb-4">Посты</h2>
+                    <ul class="list-group post-list"> -->
+
+                        <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="#" class="mb-1 fw-normal fs-5 w-75 text-break">List group</a>
+                            <button type="button" class="btn btn-outline-primary h-100">Primary</button>
+                        </li> -->
+
+                    <!-- </ul> -->
+                </div>
+
+                <div class="col col-md-4 feed-container"></div>
+            </div>
+        </div>
     </main>
+    <!-- <h2 class="text-center mb-4">Фиды</h2>
+
+                    <ul class="list-group feed-list"> -->
+
+                        <!-- <li class="list-group-item">
+                            <h4 class="mb-1 fw-normal fs-4">List group item heading</h4>
+                            <p class="mb-1 fw-light">Some placeholder content in a paragraph.</p>
+                        </li> -->
+
+                    <!-- </ul> -->
 </body>
 
 </html>

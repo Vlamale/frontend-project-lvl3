@@ -1,4 +1,7 @@
+import axios from 'axios';
 import * as yup from 'yup';
+import { getFeedFromXml, getPostsFromXml } from '../xml2Js';
+import { getRssProxyLink, parseXml } from '../utils';
 
 function formHandler(state, elements, i18nextInstance) {
   elements.$form.addEventListener('submit', (e) => {
@@ -11,6 +14,7 @@ function formHandler(state, elements, i18nextInstance) {
       .url()
       .required()
       .notOneOf(state.feedUrls);
+
     const data = new FormData(e.target);
     const dataUrl = data.get('url');
 
@@ -18,9 +22,23 @@ function formHandler(state, elements, i18nextInstance) {
       .validate(dataUrl)
       .then((url) => {
         state.rssForm.url = url;
+        return axios.get(getRssProxyLink(url))
+          .catch((err) => {
+            err.message = i18nextInstance.t('form.errors.networkError');
+            throw err;
+          });
+      })
+      .then((response) => {
+        const xmlString = response.data.contents;
+        const $xml = parseXml(xmlString);
+        const feed = getFeedFromXml($xml);
+        const posts = getPostsFromXml($xml, feed.id);
+        feed.url = state.rssForm.url;
+        state.feeds.push(feed);
+        state.posts.push(...posts);
         state.rssForm.status = 'success';
-        state.rssForm.feedbackMessage = i18nextInstance.t('rssSuccessfullyLoaded');
-        state.feedUrls.push(url);
+        state.rssForm.feedbackMessage = i18nextInstance.t('form.successfullyLoaded');
+        state.feedUrls.push(state.rssForm.url);
       })
       .catch((err) => {
         state.rssForm.status = 'error';

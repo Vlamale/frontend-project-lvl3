@@ -4,6 +4,7 @@ import { setLocale } from 'yup';
 import formHandler from './handlers/formHandler';
 import view from './view';
 import resources from './locales/index';
+import watchRssUpdates from './watchRssUpdates';
 
 function app() {
   const i18nextInstance = i18next.createInstance();
@@ -16,10 +17,10 @@ function app() {
   }).then(() => {
     setLocale({
       mixed: {
-        notOneOf: 'rssAlreadyExists',
+        notOneOf: 'form.errors.rssAlreadyExists',
       },
       string: {
-        url: 'rssIsNotValid',
+        url: 'form.errors.rssIsNotValid',
       },
     });
   });
@@ -28,6 +29,8 @@ function app() {
     $form: document.querySelector('.link-form'),
     $urlInput: document.querySelector('.link-form__input'),
     $feedback: document.querySelector('.feedback'),
+    $postContainer: document.querySelector('.post-container'),
+    $feedContainer: document.querySelector('.feed-container'),
   };
 
   const initialState = {
@@ -38,10 +41,13 @@ function app() {
       feedbackMessage: '',
     },
     feedUrls: [],
+    feeds: [],
+    posts: [],
   };
-  const state = onChange(initialState, view.bind(null, elements));
+  const state = onChange(initialState, view.bind(null, elements, i18nextInstance));
 
   formHandler(state, elements, i18nextInstance);
+  watchRssUpdates(state, 5000);
 }
 
 export default app;
