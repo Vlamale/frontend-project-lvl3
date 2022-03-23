@@ -1,4 +1,4 @@
-import uniqueId from 'lodash/uniqueId';
+import { uniqueId } from 'lodash';
 
 export function getFeedFromXml($xml) {
   const id = uniqueId('feed_');
@@ -23,6 +23,7 @@ export function getPostsFromXml($xml, feedId) {
       id,
       feedId,
     };
+
     posts.push(postData);
   });
 

@@ -3,8 +3,9 @@ import * as yup from 'yup';
 import { getFeedFromXml, getPostsFromXml } from '../xml2Js';
 import { getRssProxyLink, parseXml } from '../utils';
 
-function formHandler(state, i18nextInstance, event) {
+function formHandler({ state, i18nextInstance }, event) {
   event.preventDefault();
+
   state.rssForm.status = 'waiting';
   state.rssForm.feedbackMessage = '';
 
@@ -21,9 +22,11 @@ function formHandler(state, i18nextInstance, event) {
     .validate(dataUrl)
     .then((url) => {
       state.rssForm.url = url;
+
       return axios.get(getRssProxyLink(url))
         .catch((err) => {
           err.message = 'error:form.errors.networkError';
+
           throw err;
         });
     })
@@ -32,6 +35,7 @@ function formHandler(state, i18nextInstance, event) {
       const $xml = parseXml(xmlString);
       const feed = getFeedFromXml($xml);
       const posts = getPostsFromXml($xml, feed.id);
+
       feed.url = state.rssForm.url;
       state.feeds.push(feed);
       state.posts.push(...posts);
@@ -41,6 +45,7 @@ function formHandler(state, i18nextInstance, event) {
     })
     .catch((err) => {
       const [status, key] = err.message.split(':');
+
       state.rssForm.status = key ? status : 'error';
       state.rssForm.feedbackMessage = i18nextInstance.t(key || 'form.errors.unknownError');
     });

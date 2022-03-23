@@ -1,22 +1,19 @@
 import axios from 'axios';
-import differenceBy from 'lodash/differenceBy';
+import { differenceBy } from 'lodash';
 import { getRssProxyLink, parseXml } from './utils';
 import { getPostsFromXml } from './xml2Js';
 
-/* eslint-disable no-param-reassign */
-function watchRssUpdates(state, delay, timeoutId) {
+function watchRssUpdates({ state, i18nextInstance, delay }, tId) {
+  let timeoutId = tId;
+
   if (timeoutId) {
     clearTimeout(timeoutId);
-  }
-
-  if (state.feeds.length === 0) {
-    timeoutId = setTimeout(() => watchRssUpdates(state, delay, timeoutId), delay);
-    return;
   }
 
   const promises = state.feeds.map(({ url, id }) => axios.get(getRssProxyLink(url))
     .catch((err) => {
       err.message = 'error:form.errors.networkError';
+
       throw err;
     })
     .then((response) => {
@@ -30,15 +27,21 @@ function watchRssUpdates(state, delay, timeoutId) {
     })
     .catch((err) => {
       const [status, key] = err.message.split(':');
+
       state.rssForm.status = key ? status : 'error';
-      state.rssForm.feedbackMessage = state.i18nextInstance.t(key || 'form.errors.unknownError');
+      state.rssForm.feedbackMessage = i18nextInstance.t(key || 'form.errors.unknownError');
     }));
 
   Promise.all(promises)
     .then(() => {
-      timeoutId = setTimeout(() => watchRssUpdates(state, delay, timeoutId), delay);
+      const props = {
+        state,
+        i18nextInstance,
+        delay,
+      };
+
+      timeoutId = setTimeout(() => watchRssUpdates(props, timeoutId), delay);
     });
 }
-/* eslint-enable no-param-reassign */
 
 export default watchRssUpdates;

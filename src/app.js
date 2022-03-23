@@ -43,13 +43,24 @@ function app() {
     feedUrls: [],
     feeds: [],
     posts: [],
-    i18nextInstance,
   };
   const state = onChange(initialState, view.bind(null, elements, i18nextInstance));
 
-  elements.$form.addEventListener('submit', formHandler.bind(null, state, i18nextInstance));
+  elements.$form.addEventListener('submit', formHandler.bind(
+    null,
+    {
+      state,
+      i18nextInstance,
+    },
+  ));
 
-  watchRssUpdates(state, 5000);
+  watchRssUpdates(
+    {
+      state,
+      i18nextInstance,
+      delay: 5000,
+    },
+  );
 }
 
 export default app;

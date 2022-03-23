@@ -12,11 +12,19 @@ function view(elements, i18nextInstance, path, value) {
       break;
 
     case 'feeds':
-      createFeedsTemplate(value, elements.$feedContainer, i18nextInstance);
+      createFeedsTemplate({
+        feeds: value,
+        $container: elements.$feedContainer,
+        i18nextInstance,
+      });
       break;
 
     case 'posts':
-      createPostsTemplate(value, elements.$postContainer, i18nextInstance);
+      createPostsTemplate({
+        posts: value,
+        $container: elements.$postContainer,
+        i18nextInstance,
+      });
       break;
 
     default:

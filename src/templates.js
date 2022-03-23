@@ -1,5 +1,6 @@
 function getListStructure($container, title) {
   $container.innerHTML = '';
+
   const $title = document.createElement('h2');
   $title.classList.add('text-center', 'mb-4');
   $title.textContent = title;
@@ -10,7 +11,7 @@ function getListStructure($container, title) {
   return { $title, $list };
 }
 
-export function createPostsTemplate(posts, $container, i18nextInstance) {
+export function createPostsTemplate({ posts, $container, i18nextInstance }) {
   const postListTitle = i18nextInstance.t('postList.title');
   const { $title, $list } = getListStructure($container, postListTitle);
 
@@ -35,7 +36,7 @@ export function createPostsTemplate(posts, $container, i18nextInstance) {
   $container.append($title, $list);
 }
 
-export function createFeedsTemplate(feeds, $container, i18nextInstance) {
+export function createFeedsTemplate({ feeds, $container, i18nextInstance }) {
   const feedListTitle = i18nextInstance.t('feedList.title');
   const { $title, $list } = getListStructure($container, feedListTitle);
 
