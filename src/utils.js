@@ -7,7 +7,7 @@ export function parseXml(data) {
   const $parsedXml = parser.parseFromString(data, 'application/xml');
   const errorNode = $parsedXml.querySelector('parsererror');
   if (errorNode) {
-    throw new Error('form.errors.parsingError');
+    throw new Error('error:form.errors.parsingError');
   }
 
   return $parsedXml;

@@ -6,6 +6,7 @@ export default {
         parsingError: 'Ресурс не содержит валидный RSS',
         rssIsNotValid: 'Ссылка должна быть валидным URL',
         networkError: 'Ошибка сети',
+        unknownError: 'Неизвестная ошибка',
       },
       successfullyLoaded: 'Rss успешно загружен',
     },
