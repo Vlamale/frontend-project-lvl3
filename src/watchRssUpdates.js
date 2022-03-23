@@ -34,10 +34,10 @@ function watchRssUpdates(state, delay, timeoutId) {
       state.rssForm.feedbackMessage = state.i18nextInstance.t(key || 'form.errors.unknownError');
     }));
 
-  Promise.all(promises
+  Promise.all(promises)
     .then(() => {
       timeoutId = setTimeout(() => watchRssUpdates(state, delay, timeoutId), delay);
-    }));
+    });
 }
 /* eslint-enable no-param-reassign */
 
