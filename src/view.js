@@ -12,7 +12,7 @@ function view({ elements, i18nextInstance }, path, value) {
       break;
 
     case 'rssForm.status':
-      renderByFormStatus[value](elements);
+      renderByFormStatus(elements)[value]();
 
       break;
 

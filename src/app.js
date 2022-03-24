@@ -27,6 +27,7 @@ function app() {
 
   const elements = {
     $form: document.querySelector('.link-form'),
+    $submitBtn: document.querySelector('.link-form__submit-btn'),
     $urlInput: document.querySelector('.link-form__input'),
     $feedback: document.querySelector('.feedback'),
     $postContainer: document.querySelector('.post-container'),
@@ -39,7 +40,7 @@ function app() {
     rssForm: {
       url: '',
       isValid: true,
-      status: 'waiting',
+      status: 'ready',
       feedbackMessage: '',
     },
     feedUrls: [],
