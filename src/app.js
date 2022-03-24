@@ -33,7 +33,6 @@ function app() {
     $postContainer: document.querySelector('.post-container'),
     $feedContainer: document.querySelector('.feed-container'),
     $modal: document.querySelector('.modal'),
-    $modalWrapper: document.querySelector('.modal-wrapper'),
   };
 
   const initialState = {
