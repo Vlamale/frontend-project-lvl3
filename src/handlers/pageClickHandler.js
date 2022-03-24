@@ -2,7 +2,11 @@ function pageClickHandler(state, event) {
   switch (event.target.dataset.action) {
     case 'showModal': {
       const post = state.posts.find((post) => post.id === event.target.dataset.postId);
-      post.viewed = true;
+
+      if (post) {
+        post.viewed = true;
+      }
+
       state.showModalWithData = {
         elementId: post.id,
         title: post.title,
