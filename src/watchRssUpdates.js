@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { differenceBy } from 'lodash';
+import _ from 'lodash';
 import { getRssProxyLink, parseXml } from './utils.js';
 import { getPostsFromXml } from './xml2Js.js';
 
@@ -21,7 +21,7 @@ function watchRssUpdates({ state, i18nextInstance, delay }, tId) {
       const $xml = parseXml(xmlString);
       const posts = getPostsFromXml($xml, id);
       const postsFromFeed = state.posts.filter((post) => post.feedId === id);
-      const newPosts = differenceBy(posts, postsFromFeed, 'url');
+      const newPosts = _.differenceBy(posts, postsFromFeed, 'url');
 
       state.posts.push(...newPosts);
     })

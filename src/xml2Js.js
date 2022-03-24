@@ -1,7 +1,7 @@
-import { uniqueId } from 'lodash';
+import _ from 'lodash';
 
 export function getFeedFromXml($xml) {
-  const id = uniqueId('feed_');
+  const id = _.uniqueId('feed_');
 
   return {
     title: $xml.querySelector('title').textContent,
@@ -15,7 +15,7 @@ export function getPostsFromXml($xml, feedId) {
   const posts = [];
 
   $posts.forEach(($post) => {
-    const id = uniqueId('post_');
+    const id = _.uniqueId('post_');
     const postData = {
       title: $post.querySelector('title').textContent,
       description: $post.querySelector('description').textContent,
