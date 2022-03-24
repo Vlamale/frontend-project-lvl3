@@ -1,10 +1,10 @@
 import onChange from 'on-change';
 import i18next from 'i18next';
 import { setLocale } from 'yup';
-import { formHandler, pageClickHandler } from './handlers/index';
-import view from './view';
-import resources from './locales/index';
-import watchRssUpdates from './watchRssUpdates';
+import { formHandler, pageClickHandler } from './handlers/index.js';
+import view from './view.js';
+import resources from './locales/index.js';
+import watchRssUpdates from './watchRssUpdates.js';
 
 function app() {
   const i18nextInstance = i18next.createInstance();

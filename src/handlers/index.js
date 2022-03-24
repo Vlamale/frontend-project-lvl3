@@ -1,5 +1,5 @@
-import pageClickHandler from './pageClickHandler';
-import formHandler from './formHandler';
+import pageClickHandler from './pageClickHandler.js';
+import formHandler from './formHandler.js';
 
 export {
   pageClickHandler,

@@ -1,5 +1,5 @@
-import renderByFormStatus from './renderByFormStatus';
-import renderModal from './renderModal';
+import renderByFormStatus from './renderByFormStatus.js';
+import renderModal from './renderModal.js';
 
 export {
   renderByFormStatus,

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as yup from 'yup';
-import { getFeedFromXml, getPostsFromXml } from '../xml2Js';
-import { getRssProxyLink, parseXml } from '../utils';
+import { getFeedFromXml, getPostsFromXml } from '../xml2Js.js';
+import { getRssProxyLink, parseXml } from '../utils.js';
 
 function formHandler({ state, i18nextInstance }, event) {
   event.preventDefault();

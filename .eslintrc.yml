@@ -6,9 +6,7 @@ extends:
 parserOptions:
   ecmaVersion: latest
   sourceType: module
-rules: {
-  no-param-reassign: [2, { 
-            props: false
-        }],
-  no-shadow: off
-}
+rules:
+  no-param-reassign: 0
+  no-shadow: 0
+  import/extensions: [0, { <js>: "always" }]

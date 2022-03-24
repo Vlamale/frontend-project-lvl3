@@ -1,5 +1,5 @@
-import { createFeedsTemplate, createPostsTemplate } from './templates';
-import { renderByFormStatus, renderModal } from './renders/index';
+import { createFeedsTemplate, createPostsTemplate } from './templates.js';
+import { renderByFormStatus, renderModal } from './renders/index.js';
 
 function view({ elements, i18nextInstance }, path, value) {
   switch (path) {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { differenceBy } from 'lodash';
-import { getRssProxyLink, parseXml } from './utils';
-import { getPostsFromXml } from './xml2Js';
+import { getRssProxyLink, parseXml } from './utils.js';
+import { getPostsFromXml } from './xml2Js.js';
 
 function watchRssUpdates({ state, i18nextInstance, delay }, tId) {
   let timeoutId = tId;
