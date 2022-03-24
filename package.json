@@ -4,9 +4,7 @@
   "description": "RSS Aggregator",
   "main": "./src/index.js",
   "scripts": {
-    "start": "webpack serve",
-    "test": "npx jest --bail",
-    "testing": "npx jest --watch"
+    "start": "webpack serve"
   },
   "repository": {
     "type": "git",
