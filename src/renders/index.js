@@ -1,7 +1,7 @@
-import renderByFormStatus from './renderByFormStatus'
-import renderModal from './renderModal'
+import renderByFormStatus from './renderByFormStatus';
+import renderModal from './renderModal';
 
 export {
-    renderByFormStatus,
-    renderModal
-}
+  renderByFormStatus,
+  renderModal,
+};
