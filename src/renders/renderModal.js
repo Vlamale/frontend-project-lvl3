@@ -13,7 +13,7 @@ function renderModal({ elements, modalData }) {
 
   elements.$modal.querySelector('.modal-title').textContent = modalData.title;
   elements.$modal.querySelector('.modal-body > p').textContent = modalData.description;
-  elements.$modal.querySelector('[data-action=readMore]').dataset.url = modalData.url;
+  elements.$modal.querySelector('[data-action=readMore]').href = modalData.url;
   elements.$modal.style.display = 'block';
   elements.$modalWrapper.style.display = 'block';
 }

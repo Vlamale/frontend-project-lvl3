@@ -17,11 +17,6 @@ function pageClickHandler(state, event) {
 
       break;
 
-    case 'readMore':
-      window.open(event.target.dataset.url);
-
-      break;
-
     default:
       break;
   }
