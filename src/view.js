@@ -1,14 +1,24 @@
-import renderByformStatus from './renders/renderByformStatus';
 import { createFeedsTemplate, createPostsTemplate } from './templates';
+import { renderModal, renderByFormStatus } from './renders/index';
 
-function view(elements, i18nextInstance, path, value) {
+function view({ elements, i18nextInstance }, path, value) {
   switch (path) {
+    case 'showModalWithData':
+      renderModal({
+        elements,
+        modalData: value,
+      });
+
+      break;
+
     case 'rssForm.status':
-      renderByformStatus[value](elements);
+      renderByFormStatus[value](elements);
+
       break;
 
     case 'rssForm.feedbackMessage':
       elements.$feedback.textContent = value;
+
       break;
 
     case 'feeds':
@@ -17,6 +27,7 @@ function view(elements, i18nextInstance, path, value) {
         $container: elements.$feedContainer,
         i18nextInstance,
       });
+
       break;
 
     case 'posts':
@@ -25,6 +36,7 @@ function view(elements, i18nextInstance, path, value) {
         $container: elements.$postContainer,
         i18nextInstance,
       });
+
       break;
 
     default:

@@ -1,7 +1,7 @@
 import onChange from 'on-change';
 import i18next from 'i18next';
 import { setLocale } from 'yup';
-import formHandler from './handlers/formHandler';
+import { formHandler, pageClickHandler } from './handlers/index';
 import view from './view';
 import resources from './locales/index';
 import watchRssUpdates from './watchRssUpdates';
@@ -31,6 +31,8 @@ function app() {
     $feedback: document.querySelector('.feedback'),
     $postContainer: document.querySelector('.post-container'),
     $feedContainer: document.querySelector('.feed-container'),
+    $modal: document.querySelector('.modal'),
+    $modalWrapper: document.querySelector('.modal-wrapper'),
   };
 
   const initialState = {
@@ -43,24 +45,28 @@ function app() {
     feedUrls: [],
     feeds: [],
     posts: [],
+    showModalWithData: null,
   };
-  const state = onChange(initialState, view.bind(null, elements, i18nextInstance));
-
-  elements.$form.addEventListener('submit', formHandler.bind(
+  const state = onChange(initialState, view.bind(
     null,
     {
-      state,
+      elements,
       i18nextInstance,
     },
   ));
 
-  watchRssUpdates(
-    {
-      state,
-      i18nextInstance,
-      delay: 5000,
-    },
-  );
+  document.body.addEventListener('click', pageClickHandler.bind(null, state));
+
+  elements.$form.addEventListener('submit', formHandler.bind(null, {
+    state,
+    i18nextInstance,
+  }));
+
+  watchRssUpdates({
+    state,
+    i18nextInstance,
+    delay: 5000,
+  });
 }
 
 export default app;

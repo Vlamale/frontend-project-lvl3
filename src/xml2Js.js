@@ -22,6 +22,7 @@ export function getPostsFromXml($xml, feedId) {
       url: $post.querySelector('link').textContent,
       id,
       feedId,
+      viewed: false,
     };
 
     posts.push(postData);

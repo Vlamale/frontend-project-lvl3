@@ -9,6 +9,24 @@
 </head>
 
 <body>
+    <div class="modal opacity-transition" tabindex="-1" data-action="closeModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-action="closeModal"></button>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary modal-footer__reed-btn" data-action="readMore">Читать полностью</button>
+                    <button type="button" class="btn btn-secondary modal-footer__close-btn" data-bs-dismiss="modal" data-action="closeModal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <main>
         <div class="container-fluid bg-dark text-white p-5 mb-4">
             <div class="row">
@@ -46,6 +64,7 @@
             </div>
         </div>
     </main>
+    <div class="modal-wrapper opacity-transition"></div>
 </body>
 
 </html>

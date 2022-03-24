@@ -1,4 +1,4 @@
-const renderByformStatus = {
+const renderByFormStatus = {
   error: (elements) => {
     elements.$feedback.classList.add('text-danger');
     elements.$feedback.classList.remove('text-success');
@@ -20,4 +20,4 @@ const renderByformStatus = {
   },
 };
 
-export default renderByformStatus;
+export default renderByFormStatus;
