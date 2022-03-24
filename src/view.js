@@ -1,5 +1,6 @@
 import { createFeedsTemplate, createPostsTemplate } from './templates';
-import { renderModal, renderByFormStatus } from './renders/index';
+import renderModal from './renders/renderModal';
+import renderByFormStatus from './renders/renderByFormStatus';
 
 function view({ elements, i18nextInstance }, path, value) {
   switch (path) {
@@ -12,7 +13,7 @@ function view({ elements, i18nextInstance }, path, value) {
       break;
 
     case 'rssForm.status':
-      renderByFormStatus(elements)[value]();
+      renderByFormStatus[value](elements);
 
       break;
 
