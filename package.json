@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "RSS Aggregator",
-  "main": "./src/index.js",
+  "main": "src/app.js",
   "type": "module",
   "scripts": {
     "build": "cross-env NODE_ENV=productioon webpack --mode production",
