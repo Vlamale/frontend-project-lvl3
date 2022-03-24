@@ -3,10 +3,11 @@ function pageClickHandler(state, event) {
     case 'showModal': {
       const post = state.posts.find((post) => post.id === event.target.dataset.postId);
 
-      if (post) {
-        post.viewed = true;
+      if (!post) {
+        return;
       }
 
+      post.viewed = true;
       state.showModalWithData = {
         elementId: post.id,
         title: post.title,
