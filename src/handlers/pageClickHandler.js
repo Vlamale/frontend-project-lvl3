@@ -4,6 +4,8 @@ function pageClickHandler(state, event) {
       const post = state.posts.find((post) => post.id === event.target.dataset.postId);
       /* eslint-disable no-console */
       console.log(state.posts);
+      console.log(post);
+      console.log(event.target.dataset.postId);
       /* eslint-enable no-console */
       post.viewed = true;
       state.showModalWithData = {
