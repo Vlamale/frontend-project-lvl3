@@ -25,6 +25,9 @@ function formHandler({ state, i18nextInstance }, event) {
 
       return axios.get(getRssProxyLink(url))
         .catch((err) => {
+          /* eslint-disable no-console */
+          console.log(err.message);
+          /* eslint-enable no-console */
           err.message = 'error:form.errors.networkError';
 
           throw err;
