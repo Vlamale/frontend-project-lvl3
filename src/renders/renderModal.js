@@ -31,7 +31,7 @@ function renderModal({ elements, modalData }) {
   renderModalWrapper();
 
   elements.$modal.querySelector('.modal-title').textContent = modalData.title;
-  elements.$modal.querySelector('.modal-body > p').textContent = modalData.description;
+  elements.$modal.querySelector('.modal-body').textContent = modalData.description;
   elements.$modal.querySelector('[data-action=readMore]').href = modalData.url;
   elements.$modal.style.display = 'block';
 }

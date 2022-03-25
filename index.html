@@ -9,17 +9,15 @@
 </head>
 
 <body>
-    <div class="modal" tabindex="-1" data-action="closeModal">
-        <div class="modal-dialog">
+    <div class="modal" tabindex="-1" data-action="closeModal" aria-modal="true" aria-labelledby="modal" role="dialog" tabindex="-1" id="modal">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         data-action="closeModal"></button>
                 </div>
-                <div class="modal-body">
-                    <p></p>
-                </div>
+                <div class="modal-body text-break"></div>
                 <div class="modal-footer">
                     <a type="button" class="btn btn-primary modal-footer__reed-btn" data-action="readMore">Читать
                         полностью</a>
