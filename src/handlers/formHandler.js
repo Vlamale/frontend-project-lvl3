@@ -42,8 +42,8 @@ function formHandler({ state, i18nextInstance }, event) {
       console.log(posts);
       /* eslint-enable no-console */
       feed.url = state.rssForm.url;
-      state.feeds.push(feed);
-      state.posts.push(...posts);
+      state.feeds.unshift(feed);
+      state.posts.unshift(...posts);
       state.rssForm.status = 'success';
       state.rssForm.feedbackMessage = i18nextInstance.t('form.successfullyLoaded');
       state.feedUrls.push(state.rssForm.url);

@@ -28,7 +28,7 @@ export function createFeedsTemplate({ feeds, $container, i18nextInstance }) {
     $description.textContent = description;
 
     $feed.append($title, $description);
-    $list.prepend($feed);
+    $list.append($feed);
   });
 
   $container.append($title, $list);
@@ -56,7 +56,7 @@ export function createPostsTemplate({ posts, $container, i18nextInstance }) {
     $button.dataset.postId = postData.id;
 
     $post.append($link, $button);
-    $list.prepend($post);
+    $list.append($post);
   });
 
   $container.append($title, $list);

@@ -23,7 +23,7 @@ function watchRssUpdates({ state, i18nextInstance, delay }, tId) {
       const postsFromFeed = state.posts.filter((post) => post.feedId === id);
       const newPosts = _.differenceBy(posts, postsFromFeed, 'url');
 
-      state.posts.push(...newPosts);
+      state.posts.unshift(...newPosts);
     })
     .catch((err) => {
       const [status, key] = err.message.split(':');
