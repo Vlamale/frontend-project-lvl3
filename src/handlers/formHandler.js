@@ -38,7 +38,9 @@ function formHandler({ state, i18nextInstance }, event) {
       const $xml = parseXml(xmlString);
       const feed = getFeedFromXml($xml);
       const posts = getPostsFromXml($xml, feed.id);
-
+      /* eslint-disable no-console */
+      console.log(posts);
+      /* eslint-enable no-console */
       feed.url = state.rssForm.url;
       state.feeds.push(feed);
       state.posts.push(...posts);
@@ -47,6 +49,9 @@ function formHandler({ state, i18nextInstance }, event) {
       state.feedUrls.push(state.rssForm.url);
     })
     .catch((err) => {
+      /* eslint-disable no-console */
+      console.log(err.message);
+      /* eslint-enable no-console */
       const [status, key] = err.message.split(':');
 
       state.rssForm.status = key ? status : 'error';
