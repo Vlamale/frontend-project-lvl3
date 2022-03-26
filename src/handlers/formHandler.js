@@ -25,9 +25,6 @@ function formHandler({ state, i18nextInstance }, event) {
 
       return axios.get(getRssProxyLink(url))
         .catch((err) => {
-          /* eslint-disable no-console */
-          console.log(err.message);
-          /* eslint-enable no-console */
           err.message = 'error:form.errors.networkError';
 
           throw err;
@@ -38,9 +35,7 @@ function formHandler({ state, i18nextInstance }, event) {
       const $xml = parseXml(xmlString);
       const feed = getFeedFromXml($xml);
       const posts = getPostsFromXml($xml, feed.id);
-      /* eslint-disable no-console */
-      console.log(posts);
-      /* eslint-enable no-console */
+
       feed.url = state.rssForm.url;
       state.feeds.unshift(feed);
       state.posts.unshift(...posts);
@@ -49,9 +44,6 @@ function formHandler({ state, i18nextInstance }, event) {
       state.feedUrls.push(state.rssForm.url);
     })
     .catch((err) => {
-      /* eslint-disable no-console */
-      console.log(err.message);
-      /* eslint-enable no-console */
       const [status, key] = err.message.split(':');
 
       state.rssForm.status = key ? status : 'error';
