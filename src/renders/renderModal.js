@@ -1,4 +1,4 @@
-function renderModalWrapper() {
+function renderModalWrapper($root) {
   const $modalWrapper = document.createElement('div');
 
   $modalWrapper.classList.add('modal-wrapper');
@@ -10,30 +10,33 @@ function renderModalWrapper() {
   $modalWrapper.style.right = '0';
   $modalWrapper.style.left = '0';
   $modalWrapper.style.opacity = '.5';
-  document.body.append($modalWrapper);
+  $root.append($modalWrapper);
 }
 
 function renderModal({ elements, modalData }) {
-  if (!modalData) {
-    const $modalWrapper = document.querySelector('.modal-wrapper');
+  const { $root } = elements;
+  const { $modal } = elements;
 
-    document.body.removeChild($modalWrapper);
-    elements.$modal.style.display = 'none';
+  if (!modalData) {
+    const $modalWrapper = $root.querySelector('.modal-wrapper');
+
+    $root.removeChild($modalWrapper);
+    $modal.style.display = 'none';
 
     return;
   }
 
-  const $postTitle = document.querySelector(`[data-id='${modalData.elementId}'] .post-title`);
+  const $postTitle = $root.querySelector(`[data-id='${modalData.elementId}'] .post-title`);
 
   $postTitle.classList.add('fw-normal');
   $postTitle.classList.remove('fw-bold');
 
-  renderModalWrapper();
+  renderModalWrapper($root);
 
-  elements.$modal.querySelector('.modal-title').textContent = modalData.title;
-  elements.$modal.querySelector('.modal-body').textContent = modalData.description;
-  elements.$modal.querySelector('[data-action=readMore]').href = modalData.url;
-  elements.$modal.style.display = 'block';
+  $modal.querySelector('.modal-title').textContent = modalData.title;
+  $modal.querySelector('.modal-body').textContent = modalData.description;
+  $modal.querySelector('[data-action=readMore]').href = modalData.url;
+  $modal.style.display = 'block';
 }
 
 export default renderModal;

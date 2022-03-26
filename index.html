@@ -9,61 +9,66 @@
 </head>
 
 <body>
-    <div class="modal" tabindex="-1" data-action="closeModal" aria-modal="true" aria-labelledby="modal" role="dialog" tabindex="-1" id="modal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                        data-action="closeModal"></button>
-                </div>
-                <div class="modal-body text-break"></div>
-                <div class="modal-footer">
-                    <a type="button" class="btn btn-primary modal-footer__reed-btn" data-action="readMore">Читать
-                        полностью</a>
-                    <button type="button" class="btn btn-secondary modal-footer__close-btn" data-bs-dismiss="modal"
-                        data-action="closeModal">Закрыть</button>
+    <div id="root">
+        <div class="modal" tabindex="-1" data-action="closeModal" aria-modal="true" aria-labelledby="modal"
+            role="dialog" tabindex="-1" id="modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            data-action="closeModal"></button>
+                    </div>
+                    <div class="modal-body text-break"></div>
+                    <div class="modal-footer">
+                        <a type="button" class="btn btn-primary modal-footer__reed-btn" data-action="readMore">Читать
+                            полностью</a>
+                        <button type="button" class="btn btn-secondary modal-footer__close-btn" data-bs-dismiss="modal"
+                            data-action="closeModal">Закрыть</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <main>
-        <div class="container-fluid bg-dark text-white p-5 mb-4">
-            <div class="row">
-                <div class="col mx-auto col-md-10">
-                    <h1 class="display-3">RSS агрегатор</h1>
-                    <p class="lead">Начните читать RSS сегодня! Это легко, это красиво.</p>
+        <main>
+            <div class="container-fluid bg-dark text-white p-5 mb-4">
+                <div class="row">
+                    <div class="col mx-auto col-md-10">
+                        <h1 class="display-3">RSS агрегатор</h1>
+                        <p class="lead">Начните читать RSS сегодня! Это легко, это красиво.</p>
 
-                    <form class="link-form">
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-floating text-secondary">
-                                    <input name="url" class="form-control link-form__input" id="floatingInput"
-                                        placeholder="Ссылка RSS" required aria-label="url" autofocus autocomplete="off">
-                                    <label for="floatingInput">Ссылка RSS</label>
+                        <form class="link-form">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating text-secondary">
+                                        <input name="url" class="form-control link-form__input" id="floatingInput"
+                                            placeholder="Ссылка RSS" required aria-label="url" autofocus
+                                            autocomplete="off">
+                                        <label for="floatingInput">Ссылка RSS</label>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-primary px-sm-5 h-100 link-form__submit-btn"
+                                        aria-label="add" name="add">Добавить</button>
                                 </div>
                             </div>
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-primary px-sm-5 h-100 link-form__submit-btn" aria-label="add" name="add">Добавить</button>
-                            </div>
-                        </div>
-                    </form>
-                    <p class="mt-2 mb-0 text-muted">Пример: https://ru.hexlet.io/lessons.rss</p>
-                    <p class="feedback m-0 position-absolute small text-danger"></p>
+                        </form>
+                        <p class="mt-2 mb-0 text-muted">Пример: https://ru.hexlet.io/lessons.rss</p>
+                        <p class="feedback m-0 position-absolute small text-danger"></p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container-fluid p-0">
-            <div class="row">
+            <div class="container-fluid p-0">
+                <div class="row">
 
-                <div class="col col-md-8 post-container"></div>
+                    <div class="col col-md-8 post-container"></div>
 
-                <div class="col col-md-4 feed-container"></div>
+                    <div class="col col-md-4 feed-container"></div>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>

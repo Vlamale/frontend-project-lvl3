@@ -26,6 +26,7 @@ function app() {
   });
 
   const elements = {
+    $root: document.querySelector('#root'),
     $form: document.querySelector('.link-form'),
     $submitBtn: document.querySelector('.link-form__submit-btn'),
     $urlInput: document.querySelector('.link-form__input'),
@@ -55,7 +56,7 @@ function app() {
     },
   ));
 
-  document.body.addEventListener('click', pageClickHandler.bind(null, state));
+  elements.$root.addEventListener('click', pageClickHandler.bind(null, state));
 
   elements.$form.addEventListener('submit', formHandler.bind(null, {
     state,
