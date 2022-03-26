@@ -19,15 +19,15 @@ export function createFeedsTemplate({ feeds, $container, i18nextInstance }) {
     const $feed = document.createElement('li');
     $feed.classList.add('list-group-item', 'text-center');
 
-    const $title = document.createElement('h4');
-    $title.classList.add('mb-1', 'fw-normal', 'fs-4');
-    $title.textContent = title;
+    const $feedTitle = document.createElement('h4');
+    $feedTitle.classList.add('mb-1', 'fw-normal', 'fs-4');
+    $feedTitle.textContent = title;
 
     const $description = document.createElement('p');
     $description.classList.add('mb-1', 'fw-light');
     $description.textContent = description;
 
-    $feed.append($title, $description);
+    $feed.append($feedTitle, $description);
     $list.append($feed);
   });
 

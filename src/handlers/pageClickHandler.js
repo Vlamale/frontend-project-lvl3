@@ -1,7 +1,7 @@
 function pageClickHandler(state, event) {
   switch (event.target.dataset.action) {
     case 'showModal': {
-      const post = state.posts.find((post) => post.id === event.target.dataset.postId);
+      const post = state.posts.find((p) => p.id === event.target.dataset.postId);
       /* eslint-disable no-console */
       console.log(state.posts);
       //   console.log(state);
